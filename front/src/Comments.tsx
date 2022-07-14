@@ -22,28 +22,7 @@ function Comments() {
   }
 };
 
- function onSubmitForm1() {
-        fetch(`http://localhost:4000/api/v1/todo`, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                description: description,
-            }),
-        })
-            .then((response) => response.json())
 
-            .then((data) => {
-                if (data.error === false) {
-                    alert("todo added with succuss");
-                } else {
-                    alert("error");
-                }
-            })
-            .catch((err) => console.log(err));
-    }
   return (
 
     <div>
