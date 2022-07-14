@@ -6,8 +6,7 @@ function Comments() {
 
   const [ description, setDescription] = React.useState("");
 
-  const onSubmitForm = async (e:any) => {
-  e.preventDefault();
+  const onSubmitForm = async () => {
   try {
     const body = { description };
     const response = await fetch(`http://localhost:4000/api/v1/add_comment`, {
