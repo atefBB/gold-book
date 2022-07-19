@@ -10,7 +10,7 @@ export default (app: Application) => {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "Saber API",
+        title: "Malak API",
         version: "1.0.0",
         description:
           "This page is dedicated to the route list in the application",
