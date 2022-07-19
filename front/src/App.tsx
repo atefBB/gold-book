@@ -1,20 +1,17 @@
-import React from 'react';
-import { Header }  from './Header'; 
-import Comments from './Comments';
-import './App.css';
+import React from "react";
+//components
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { Comments } from "./components/Comments";
+import { Main } from "./components/Main";
 
-function App() {
+export function App() {
   return (
-   
-    <div>
-    <Header/>
-      <Comments/>
-   
-    <footer className='footer'>
-        <small>© 2022 BenAoun development. All rights reserved.</small>
-    </footer>
-</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/comments" element={<Comments />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
