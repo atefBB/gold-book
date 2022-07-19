@@ -1,21 +1,18 @@
-import e, { Request, Response } from "express";
+import { Request, Response } from "express";
 
 import pool from "../database";
 
-export const postComment = async (req: Request, res: Response) => {
+export const postComment = async (request: Request, response: Response) => {
 
   try {
-    const { description } = req.body;
-    const newComment = await pool.query(
-      "INSERT INTO todo (description) VALUES($1) RETURNING * ", [description]);
-
-
-    res.json(newComment.rows[0]);
-
-    res.status(200).send("ok");
+    const { comment } = request.body;
+    let sql = `INSERT INTO public.comments (comment) VALUES ('${comment}') RETURNING * `
+    const newComment = await pool.query(sql
+    );
+    response.json(newComment.rows);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: error });
+    return response.status(500).json({ error: error });
   }
-};   
+};
 
