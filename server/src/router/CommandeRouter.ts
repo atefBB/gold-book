@@ -1,7 +1,8 @@
 import express from "express";
 import { postComment } from "../controllers/postComment";
-import { getUser } from "../controllers/getUser";
-import { deleteUser } from "../controllers/deleteUser";
+import { getComments } from "../controllers/getComments";
+import { deleteComment } from "../controllers/deleteComment";
+import { updateComment } from "../controllers/updateComment";
 
 const router = express.Router();
 
@@ -14,9 +15,9 @@ const router = express.Router();
 
 /**
  * @swagger
- * /commands:
+ * /comments:
  *   get:
- *     summary: get User
+ *     summary: get comments
  *     tags: [User]
  *     responses:
  *       200:
@@ -39,12 +40,15 @@ const router = express.Router();
  *                type: object
  *
  */
+router.route("/comments").get(getComments);
+
+
 
 /**
  * @swagger
- * /delete:
+ * /deleteComment:
  *   delete:
- *     summary: delete User
+ *     summary: Delete comment
  *     tags: [User]
  *     requestBody:
  *       content:
@@ -52,8 +56,8 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             properties:
- *               nom:
- *                 type: string
+ *               id:
+ *                 type: number
  *     responses:
  *       200:
  *         description: ok
@@ -61,8 +65,8 @@ const router = express.Router();
  *           application/json:
  *             schema:
  *                type: object
- *       404:
- *         description: not found
+ *       409:
+ *         description: conflict
  *         content:
  *           application/json:
  *             schema:
@@ -75,6 +79,7 @@ const router = express.Router();
  *                type: object
  *
  */
+router.route("/deleteComment").delete(deleteComment);
 
 
 /**
@@ -89,7 +94,7 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             properties:
- *               description:
+ *               comment:
  *                 type: string
  *     responses:
  *       200:
@@ -113,7 +118,46 @@ const router = express.Router();
  *
  */
 router.route("/add_comment").post(postComment);
+/**
+ * @swagger
+ * /update_comment:
+ *   put:
+ *     summary: update Comment
+ *     tags: [User]
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: integer
+ *               comment:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: ok
+ *         content:
+ *           application/json:
+ *             schema:
+ *                type: object
+ *       404:
+ *         description: not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *                type: object
+ *       500:
+ *         description: error
+ *         content:
+ *           application/json:
+ *             schema:
+ *                type: object
+ *
+ */
 
-router.route("/commands").get(getUser);
-router.route("/delete").delete(deleteUser);
+router.route("/update_comment").put(updateComment);
+
+
+
 export default router;
