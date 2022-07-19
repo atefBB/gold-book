@@ -15,7 +15,7 @@ main {
   display: flex;
   align-items: center;
   height: 65px;
-  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
   color: white;
   padding: 20px;
 }
@@ -33,6 +33,7 @@ main {
 .header--project {
   font-size: 0.75rem;
   font-weight: 500;
+  padding-left: 10px;
 }
 
 .form {
@@ -49,36 +50,32 @@ main {
   display: flex;
   font-family: "Karla", sans-serif;
   border-radius: 5px;
-  border: 1px solid #D5D4D8;
+  border: 1px solid #d5d4d8;
   text-indent: 5px;
   padding-bottom: 50px;
 }
 
 .form--button {
   padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    width: 25%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  width: 25%;
   border-radius: 5px;
-  background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
   color: white;
   border: none;
   cursor: pointer;
 }
 
-
-
-
-
-.footer {
-    margin-bottom: 0 ;
-    margin-top: 20%;
-    display: flex;
-      align-items: center;
-      height: 65px;
-      background: linear-gradient(90deg, #2e2c2e 1.18%, #2e2c2e 100%);
-      color: white;
-      padding: 20px;
+footer {
+  margin-bottom: 0;
+  margin-top: 20%;
+  display: flex;
+  align-items: center;
+  height: 65px;
+  background: linear-gradient(90deg, #2e2c2e 1.18%, #2e2c2e 100%);
+  color: white;
+  padding: 20px;
 }
