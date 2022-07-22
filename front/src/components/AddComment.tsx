@@ -9,9 +9,15 @@ export function AddComment() {
       await fetch(`${process.env.REACT_APP_API_URL}/add_comment`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ comment: comment }),
+        body: JSON.stringify({
+          comment: comment,
+          id_user: localStorage.getItem("user_id"),
+        }),
       });
       console.log("added");
+      //alert
+      //toast.configure();
+      alert("Comment added successfully");
     } catch (err) {
       console.error(err);
     }
