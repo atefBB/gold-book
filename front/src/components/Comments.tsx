@@ -6,7 +6,13 @@ export function Comments() {
   const [comment, setComment] = React.useState("");
 
   async function getComments() {
-    await fetch(`${process.env.REACT_APP_API_URL}/comments`)
+    await fetch(`${process.env.REACT_APP_API_URL}/user_comments`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id_user: localStorage.getItem("user_id"),
+      }),
+    })
       .then((res) => res.json())
       .then(
         (result) => {
@@ -31,6 +37,7 @@ export function Comments() {
         }
       );
       console.log(Response);
+      alert("Comment updated successfully");
     } catch (err) {
       console.error(err);
     }
@@ -42,6 +49,7 @@ export function Comments() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: idc }),
       });
+      alert("Comment deleted successfully");
     } catch (err) {
       console.error(err);
     }
@@ -73,6 +81,7 @@ export function Comments() {
                     className="btn btn-warning"
                     data-toggle="modal"
                     data-target={`#id${Element.id}`}
+                    onClick={() => setComment(Element.comment)}
                   >
                     Edit
                   </Button>
@@ -86,7 +95,7 @@ export function Comments() {
                             type="button"
                             className="close"
                             data-dismiss="modal"
-                            onClick={() => setComments(Element.comment)}
+                            onClick={() => setComment(Element.comment)}
                           >
                             &times;
                           </Button>
@@ -98,9 +107,7 @@ export function Comments() {
                             className="form-control"
                             placeholder="edit comment"
                             value={comment}
-                            onChange={(e: any) => {
-                              setComment(e.target.value);
-                            }}
+                            onChange={(e: any) => setComment(e.target.value)}
                           />
                         </div>
 
