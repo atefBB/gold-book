@@ -23,10 +23,7 @@ export function Login() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log({ data });
         if (data.error === false && data.data.role === "User") {
-          console.log("here");
-
           navigate("/home");
         } else if (data.error === false && data.data.role === "admin") {
           alert("admin");
