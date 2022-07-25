@@ -6,13 +6,10 @@ export function Register() {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  //const [confirm, setConfirm] = React.useState("");
-  const [role, setRole] = React.useState("");
   const [input, setInput] = React.useState({
     password: "",
     confirmPassword: "",
   });
-
   const [error, setError] = React.useState({
     password: "",
     confirmPassword: "",
@@ -21,9 +18,7 @@ export function Register() {
   const HandleEmail = (e: any) => {
     setEmail(e.target.value);
   };
-  // const HandleRole = (e: any) => {
-  //   setRole(e.target.value);
-  // };
+
   const HandlePassword = (e: any) => {
     setPassword(e.target.value);
     const { name, value } = e.target;
@@ -36,9 +31,7 @@ export function Register() {
   const HandleName = (e: any) => {
     setUsername(e.target.value);
   };
-  // const HandleConfirm = (e: any) => {
-  //   setConfirm(e.target.value);
-  // };
+
   const validateInput = (e: any) => {
     let { name, value } = e.target;
     setError((prev) => {
@@ -76,7 +69,7 @@ export function Register() {
   };
 
   async function handleFormRegisterEvent() {
-    const body = { username, email, password, role };
+    const body = { username, email, password };
     await fetch(`${process.env.REACT_APP_API_URL}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -161,12 +154,6 @@ export function Register() {
             <span className="err">{error.confirmPassword}</span>
           )}
         </div>
-        {/* <div>
-          <input type="radio" value="User" name="role" onChange={HandleRole} />
-          User
-          <input type="radio" value="Admin" name="role" onChange={HandleRole} />
-          Admin
-        </div> */}
 
         <Button
           onClick={() => {
@@ -177,6 +164,8 @@ export function Register() {
               input.confirmPassword === input.password
             ) {
               handleFormRegisterEvent();
+            } else {
+              alert("no");
             }
           }}
           className="btn btn-primary"
