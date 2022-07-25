@@ -14,9 +14,6 @@ export function AddComment() {
           id_user: localStorage.getItem("user_id"),
         }),
       });
-      console.log("added");
-      //alert
-      //toast.configure();
       alert("Comment added successfully");
     } catch (err) {
       console.error(err);
