@@ -2,7 +2,7 @@ import React from "react";
 
 export function ListComments() {
   const [comments, setComments] = React.useState([]);
-  
+
   async function getComments() {
     await fetch(`${process.env.REACT_APP_API_URL}/comments`)
       .then((res) => res.json())
@@ -15,10 +15,11 @@ export function ListComments() {
         }
       );
   }
+
   React.useEffect(() => {
     getComments();
   });
-  console.log(comments);
+
   return (
     <>
       <table className="table">
