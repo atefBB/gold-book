@@ -1,9 +1,9 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export function Register() {
+  const navigate = useNavigate();
   const [username, setUsername] = React.useState("");
-
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [input, setInput] = React.useState({
@@ -79,6 +79,7 @@ export function Register() {
       .then((data) => {
         if (data.error === false) {
           alert("register successful !");
+          navigate("/home");
         } else {
           alert(data.data);
         }
@@ -155,7 +156,7 @@ export function Register() {
           )}
         </div>
 
-        <Button
+        <button
           onClick={() => {
             if (
               email !== "" &&
@@ -168,10 +169,10 @@ export function Register() {
               alert("no");
             }
           }}
-          className="btn btn-primary"
+          className="form--button2"
         >
           Register
-        </Button>
+        </button>
       </div>
     </div>
   );
