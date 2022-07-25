@@ -1,6 +1,7 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
+import "../App.css";
 export function Header() {
   const navigate = useNavigate();
 
@@ -9,20 +10,25 @@ export function Header() {
   }
   function onNavigateLogin() {
     navigate("/");
-    localStorage.clear()
+    localStorage.clear();
+  }
+  function onNavigateHome() {
+    navigate("/home");
   }
   return (
     <header className="header">
-      <img src={"../assets/react-logo.png"} className="header--image" alt="logo" />
+      <img src={logo} className="header--image" alt="logo" />
 
-      <h2 className="header--title">GOLD BOOK</h2>
-      <Button className="form--button">HOME</Button>
-      <Button className="form--button" onClick={onNavigateComments}>
+      <h1 className="header--title">GOLD BOOK</h1>
+      <button className="form--button" onClick={onNavigateHome}>
+        HOME
+      </button>
+      <button className="form--button" onClick={onNavigateComments}>
         COMMENTS
-      </Button>
-      <Button className="form--button" onClick={onNavigateLogin}>
+      </button>
+      <button className="form--button1" onClick={onNavigateLogin}>
         DISCONNECT
-      </Button>
+      </button>
     </header>
   );
 }
