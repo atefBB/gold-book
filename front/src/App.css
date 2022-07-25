@@ -15,7 +15,7 @@ main {
   display: flex;
   align-items: center;
   height: 80px;
-  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+  background: linear-gradient(90deg, #df8909 1.18%, #c79f4a 100%);
   color: white;
   padding: 20px;
   
@@ -23,19 +23,16 @@ main {
 }
 
 .header--image {
-  height: 100%;
+  height: 120%;
   margin-right: 6px;
+  width: 10%;
 }
 
 .header--title {
+  font-family: 'Fugaz One', cursive;
   font-size: 2rem;
   margin-right: auto;
-}
-
-.header--project {
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding-left: 10px;
+  font-style: italic;
 }
 
 .form {
@@ -65,10 +62,37 @@ main {
   font-size: 20px;
   width: 15%;
   border-radius: 5px;
-  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  background: linear-gradient(90.41deg, #df8909 1.14%, #c79f4a 100%);
   color: white;
   border: none;
   cursor: pointer;
+}
+.form--button1 {
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  width: 15%;
+  border-radius: 5px;
+  background: linear-gradient(90.41deg, #df5606 1.14%, #c46c07 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.form--button2 {
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  width: 30%;
+  border-radius: 5px;
+  background: linear-gradient(90.41deg, #df5606 1.14%, #c46c07 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 
@@ -80,73 +104,24 @@ main {
 }
 
 .screen {
-  background: linear-gradient(90deg, #cccbce, #cccbce);
+  background: linear-gradient(90deg, #dfb069, #c79f4a);
   position: relative;
   align-items: center;
   height: 550px;
   width: 360px;
-  padding-left: 20px;
-  padding-top: 30px;
+  padding-left: 82px;
+  padding-top: 66px;
   box-shadow: 0px 0px 24px #5C5696;
 
 }
-
+.a--text {
+  color: rgb(247, 241, 241);
+  font-size: 20px;
+}
 .screen__content {
   z-index: 1;
   position: relative;
   height: 100%;
-}
-
-.screen__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  -webkit-clip-path: inset(0 0 0 0);
-  clip-path: inset(0 0 0 0);
-}
-
-.screen__background__shape {
-  transform: rotate(45deg);
-  position: absolute;
-}
-
-.screen__background__shape1 {
-  height: 520px;
-  width: 520px;
-  background: #FFF;
-  top: -50px;
-  right: 120px;
-  border-radius: 0 72px 0 0;
-}
-
-.screen__background__shape2 {
-  height: 220px;
-  width: 220px;
-  background: #6C63AC;
-  top: -172px;
-  right: 0;
-  border-radius: 32px;
-}
-
-.screen__background__shape3 {
-  height: 540px;
-  width: 190px;
-  background: linear-gradient(270deg, #5D54A4, #6A679E);
-  top: -24px;
-  right: 0;
-  border-radius: 32px;
-}
-
-.screen__background__shape4 {
-  height: 400px;
-  width: 200px;
-  background: #7E7BB9;
-  top: 420px;
-  right: 50px;
-  border-radius: 60px;
 }
 
 
@@ -156,7 +131,7 @@ footer {
   display: flex;
   align-items: center;
   height: 65px;
-  background: linear-gradient(90deg, #2e2c2e 1.18%, #2e2c2e 100%);
+  background: linear-gradient(90deg, #666466 1.18%, #9c999c 100%);
   color: white;
   padding: 20px;
 }
