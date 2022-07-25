@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import "../App.css";
 
 export function Login() {
   const [email, setEmail] = React.useState("");
@@ -72,8 +72,8 @@ export function Login() {
           />
         </div>
         <div>
-          <Button
-            className="d-flex justify-content-center"
+          <button
+            className="form--button2"
             onClick={() => {
               if (email !== "" && password !== "") {
                 handleFormLoginEvent();
@@ -81,9 +81,11 @@ export function Login() {
             }}
           >
             Login
-          </Button>
+          </button>
           <br /> <br />
-          <a href="/register">Create one!</a>
+          <a href="/register" className="a--text">
+            Create one!
+          </a>
         </div>
       </div>
     </div>
