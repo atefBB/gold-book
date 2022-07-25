@@ -20,9 +20,9 @@ export const verifyEmail = async (email: string) => {
 export const postUser = async (request: Request, response: Response) => {
     try {
 
-        const { username, email, password, role } = request.body;
+        const { username, email, password } = request.body;
         if (await verifyEmail(email) === false) {
-            let sql = `INSERT INTO public.users (username ,email, password,role) VALUES ('${username}','${email}','${password}', '${role}' ) RETURNING * `
+            let sql = `INSERT INTO public.users (username ,email, password,role) VALUES ('${username}','${email}','${password}', 'User' ) RETURNING * `
             const newUser = await pool.query(sql)
             if (newUser.rowCount > 0) {
                 response.json({ "error": false, "data": newUser.rows });
