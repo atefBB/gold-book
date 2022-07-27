@@ -14,6 +14,7 @@ export function Login() {
   };
 
   let navigate = useNavigate();
+
   function handleFormLoginEvent() {
     const body = { email, password };
     fetch(`${process.env.REACT_APP_API_URL}/login`, {
@@ -32,6 +33,7 @@ export function Login() {
           alert("Verify!!");
         }
         localStorage.setItem("user_id", email);
+        localStorage.setItem("username", data.data.username);
       })
       .catch((err) => console.log(err));
   }
