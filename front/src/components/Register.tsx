@@ -15,6 +15,8 @@ export function Register() {
     confirmPassword: "",
   });
 
+  const emailMatchWord = new RegExp(/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/);
+
   const HandleEmail = (e: any) => {
     setEmail(e.target.value);
   };
@@ -69,23 +71,24 @@ export function Register() {
   };
 
   async function handleFormRegisterEvent() {
-    const body = { username, email, password };
-    await fetch(`${process.env.REACT_APP_API_URL}/register`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.error === false) {
-          alert("register successful !");
-          navigate("/home");
-        } else {
-          alert(data.data);
-        }
+      const body = { username, email, password };
+      await fetch(`${process.env.REACT_APP_API_URL}/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       })
-      .catch((err) => console.log(err));
-  }
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error === false) {
+            alert("register successful !");
+            navigate("/");
+          } else {
+            alert(data.data);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  
 
   return (
     <div
@@ -114,7 +117,7 @@ export function Register() {
         <div className="mb-3">
           <label className="form-label">Email address</label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="exampleInputEmail1"
             onChange={HandleEmail}
@@ -122,6 +125,9 @@ export function Register() {
             style={{ width: "20rem" }}
             placeholder="Enter Email"
           />
+          {!email.match(emailMatchWord) && email.length > 0 && (
+            <span className="err">invalid</span>
+          )}
         </div>
         <div className="mb-3">
           <label className="form-label">Password</label>
@@ -166,7 +172,7 @@ export function Register() {
             ) {
               handleFormRegisterEvent();
             } else {
-              alert("no");
+              alert("verify password!!");
             }
           }}
           className="form--button2"
