@@ -20,6 +20,7 @@ export function Header() {
       <img src={logo} className="header--image" alt="logo" />
 
       <h1 className="header--title">GOLD BOOK</h1>
+      <p className="text">Good morning {localStorage.getItem("username")}!</p>
       <button className="form--button" onClick={onNavigateHome}>
         HOME
       </button>
